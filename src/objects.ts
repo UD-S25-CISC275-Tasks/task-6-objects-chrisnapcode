@@ -49,7 +49,6 @@ export function isValid(question: Question, answer: string): boolean {
             (option: string): boolean => option === answer,
         );
     }
-    return false;
 }
 
 /**
@@ -82,7 +81,7 @@ export function toShortForm(question: Question): string {
 export function toMarkdown(question: Question): string {
     let result = `# ${question.name}\n${question.body}`;
 
-    if (question.type === "multiple_choice_question" && question.options) {
+    if (question.type === "multiple_choice_question") {
         const options = question.options
             .map((option) => `- ${option}`)
             .join("\n");
